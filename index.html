@@ -10,9 +10,11 @@
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/Control.Minimap.css"/>
   <link rel="stylesheet" href="css/Leaflet.Weather.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.5.0/vis.min.css" type="text/css" />
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.5.0/vis.min.js"></script>
   <script type="text/javascript" src="js/leaflet-hash.js"></script>
   <script type="text/javascript" src="js/Control.MiniMap.js"></script>
   <script type="text/javascript" src="js/Leaflet.Weather.js"></script>
@@ -20,8 +22,30 @@
 
 <body>
 
+  <div id="timeline"></div>
 
+  <script>
+    // DOM element where the Timeline will be attached
+    var container = document.getElementById('timeline');
 
+    // Create a DataSet (allows two way data-binding)
+    var items = new vis.DataSet([
+      {id: 1, content: 'item 1', start: '2015-04-20'},
+      {id: 2, content: 'item 2', start: '2015-04-14'},
+      {id: 3, content: 'item 3', start: '2015-04-18'},
+      {id: 4, content: 'item 4', start: '2015-04-16', end: '2015-04-19'},
+      {id: 5, content: 'item 5', start: '2015-04-25'},
+      {id: 6, content: 'item 6', start: '2015-04-27'}
+    ]);
+
+    // Configuration for the Timeline
+    var options = {};
+
+    // Create a Timeline
+    var timeline = new vis.Timeline(container, items, options);
+
+  </script>
+  
   <div>
     <a href="file:///Users/macos1093/Documents/2015/Capstone/capstone/index.html#10/1.2683/103.7972"> Original</a>
     <a href="file:///Users/macos1093/Documents/2015/Capstone/capstone/index.html#14/1.2547/103.8204"> Minimap zoom in</a>
