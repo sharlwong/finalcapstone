@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LeafletPlayback</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.5.0/vis.min.css" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/3.12.0/vis.css" rel="stylesheet" type="text/css"/>
+
+
+    <style>
+    #map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 120px;
+    }
+    
+    #title_container {
+        z-index: 10000;
+        position: absolute;
+        left: 100px;
+    }    
+    
+    #timeline { 
+        height: 120px; 
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+    h1 {
+        font-size: 36px;
+        font-weight: 300;
+        line-height: 1.1;
+    }
+
+    .datetimeControl p {
+        margin: 0;
+        font-size: 16px;
+    }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+    <div id="timeline"></div>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/3.12.0/vis.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet-src.js"></script>
+    <script src="playback/Util.js"></script>
+    <script src="playback/MoveableMarker.js"></script>
+    <script src="playback/Track.js"></script>
+    <script src="playback/TrackController.js"></script>
+    <script src="playback/Clock.js"></script>
+    <script src="playback/TracksLayer.js"></script>
+    <script src="playback/Control.js"></script>
+    <script src="playback/Playback.js"></script>    
+    <script src="playback/demo-tracks.js"></script>
+    <script src="playback/example_1.js"></script>
+
+
+</body>
+</html>
