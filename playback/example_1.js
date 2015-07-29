@@ -33,17 +33,19 @@ $(function() {
     map.addLayer(basemapLayer);
 
 
-    var pointA = new L.LatLng(1.14285, 103.72536);
-    var pointB = new L.LatLng(1.14335, 103.72586);
+    var pointA = new L.LatLng(1.23785, 103.63036);
+    var pointB = new L.LatLng(1.19135, 103.82186);
     var pointList = [pointA, pointB];
 
-    var firstpolyline = new L.polyline(pointList {
+    var firstpolyline = new L.Polyline(pointList, {
     color: 'red',
-    weight: 1,
-    opacity: 0.5
+    weight: 2,
+    opacity: 0.5,
     smoothFactor: 1
 
     });
+
+    firstpolyline.addTo(map);
 
 
 
