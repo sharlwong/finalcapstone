@@ -4,7 +4,7 @@ $(function() {
     var endTime = new Date(demoTracks[0].properties.time[demoTracks[0].properties.time.length - 1]);
 
     // Create a DataSet with data
-    var timelineData = new vis.DataSet([{ start: startTime, end: endTime, content: 'Demo GPS Tracks' }]);
+    var timelineData = new vis.DataSet([{ start: startTime, end: endTime, content: 'Relationship between entities' }]);
 
     // Set timeline options
     var timelineOptions = {
@@ -77,7 +77,7 @@ $(function() {
     var playback = new L.Playback(map, null, onPlaybackTimeChange, playbackOptions);
     
     playback.setData(demoTracks);    
-    playback.addData(blueMountain);
+    // playback.addData(ship1);
 
     // Uncomment to test data reset;
     //playback.setData(blueMountain);    
