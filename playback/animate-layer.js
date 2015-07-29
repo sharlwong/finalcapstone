@@ -1,7 +1,7 @@
 $(function() {
     // Get start/end times
-    var startTime = new Date(demoTracks[0].properties.time[0]);
-    var endTime = new Date(demoTracks[0].properties.time[demoTracks[0].properties.time.length - 1]);
+    var startTime = new Date(shipCoords[0].properties.time[0]);
+    var endTime = new Date(shipCoords[0].properties.time[shipCoords[0].properties.time.length - 1]);
 
     // Create a DataSet with data
     var timelineData = new vis.DataSet([{ start: startTime, end: endTime, content: 'Relationship between entities' }]);
@@ -37,17 +37,20 @@ $(function() {
     var pointB = new L.LatLng(1.19135, 103.82186);
     var pointList = [pointA, pointB];
 
-    var firstpolyline = new L.Polyline(pointList, {
-    color: 'red',
-    weight: 2,
-    opacity: 0.5,
-    smoothFactor: 1
+    var firstpolyline = new L.Polyline(
+        [new L.LatLng(1.23785, 103.63036), new L.LatLng(1.19135, 103.82186)], 
+        {
+            color: 'red',
+            weight: 2,
+            opacity: 0.5,
+            smoothFactor: 1
+        }
+    );
 
-    });
-
-    firstpolyline.addTo(map);
+    firstpolyline.toGeoJSON();
 
 
+    // firstpolyline.addTo(map);
 
 
     // =====================================================
@@ -94,7 +97,8 @@ $(function() {
     // Initialize playback
     var playback = new L.Playback(map, null, onPlaybackTimeChange, playbackOptions);
     
-    playback.setData(demoTracks);    
+    playback.setData(shipCoords);
+
     // playback.addData(ship1);
 
     // Uncomment to test data reset;
