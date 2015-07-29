@@ -32,6 +32,22 @@ $(function() {
     // Adds the background layer to the map
     map.addLayer(basemapLayer);
 
+
+    var pointA = new L.LatLng(1.14285, 103.72536);
+    var pointB = new L.LatLng(1.14335, 103.72586);
+    var pointList = [pointA, pointB];
+
+    var firstpolyline = new L.polyline(pointList {
+    color: 'red',
+    weight: 1,
+    opacity: 0.5
+    smoothFactor: 1
+
+    });
+
+
+
+
     // =====================================================
     // =============== Playback ============================
     // =====================================================
