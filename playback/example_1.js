@@ -27,7 +27,7 @@ $(function() {
     var basemapLayer = new L.TileLayer('http://{s}.tiles.mapbox.com/v3/github.map-xgq2svrz/{z}/{x}/{y}.png');
 
     // Center map and default zoom level
-    map.setView([44.5, -123.6], 10);
+    map.setView([1.2683,103.7972], 10);
 
     // Adds the background layer to the map
     map.addLayer(basemapLayer);
