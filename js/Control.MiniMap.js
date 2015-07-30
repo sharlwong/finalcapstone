@@ -21,7 +21,7 @@
 
 	var MiniMap = L.Control.extend({
 		options: {
-			position: 'bottomright',
+			position: 'bottomleft',
 			toggleDisplay: false,
 			zoomLevelOffset: -5,
 			zoomLevelFixed: false,
