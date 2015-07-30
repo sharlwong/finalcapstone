@@ -2410,7 +2410,7 @@ $(function() {
         "Timeshot 18": t18,
         "Timeshot 19": t19,
         "Timeshot 20": t20,
-        "Medical": MERS
+        "MERS crisis": MERS
     };
 
     L.control.layers(baseLayers, timeshots).addTo(map);
@@ -2541,5 +2541,10 @@ $(function() {
     
     L.control.weather().addTo(map); 
 
+    // =====================================================
+    // ================== Hash =============================
+    // =====================================================
+
+    var hash = new L.Hash(map);
 
 });
