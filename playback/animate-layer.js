@@ -1,4 +1,3 @@
-
 $(function() {
     // Get start/end times
     var startTime = new Date(shipCoords[0].properties.time[0]);
@@ -2262,11 +2261,139 @@ $(function() {
         opacity: 0.7,
         smoothFactor: 1
     }).addTo(t20);
+	
+	  // =====================================================
+    // =============== Layer:MERS ===========================
+    // =====================================================
+	
+    var MERS = new L.LayerGroup();
+
+    L.marker([1.2683,103.7972]).bindPopup("<b>Five Star Cruise</b><br/>Ship with MERS").openPopup().addTo(MERS);
+	
+	var customPopup1 = "First Stop Response<br/><img src='assets/yellowpopup.png' alt='yellow popup' width='100px'/>";
+	var customOptions1 =
+        {
+        'maxWidth': '100',
+        'className' : 'custom'
+        };
+		
+    L.circle([1.27107, 103.79791], 300, {
+      color: 'yellow',
+      fillColor: '#FFF200',
+      fillOpacity: 0.6
+    }).bindPopup(customPopup1,customOptions1).addTo(MERS);
+	
+    
+		
+	var customPopup2 = "<img src='assets/Nuhpopup.png' alt='nuh popup' width='100px'/>";
+	var customOptions2 =
+        {
+        'maxWidth': '100',
+        'className' : 'custom'
+        };
+		
+    L.circle([1.29396, 103.78308], 150, {
+      color: 'red',
+      fillColor: '#ED1C24',
+      fillOpacity: 0.6
+    }).bindPopup(customPopup2,customOptions2).addTo(MERS);
+	
+
+    L.circle([1.26281, 103.81874], 300, {
+      color: 'blue',
+      fillColor: '#21409A',
+      fillOpacity: 0.6
+    }).bindPopup("Where other ships dock").addTo(MERS);
+	
+	
+    //Custom Ship Icon
+    var shipIcon = L.Icon.extend({
+      options: {
+          iconSize:     [17.7, 20], // size of the icon
+          iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+          popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+      }
+    });
+
+    var blackShip = new shipIcon({iconUrl: 'assets/Ship_black.png'})
+
+    L.marker([1.26848, 103.79659], {icon: blackShip}).addTo(MERS);
+	
+	 var Roadblock = L.Icon.extend({
+      options: {
+          iconSize:     [7, 23], // size of the icon
+          iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+          popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+      }
+    });
+
+    var block = new Roadblock({iconUrl: 'assets/block.png'})
+
+    L.marker([1.279, 103.78664], {icon: block}).addTo(MERS);
+	
+	//Path to the hospital
+	var path = L.Icon.extend({
+      options: {
+          iconSize:     [150, 245], // size of the icon
+          iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+          popupAnchor:  [36, 100] // point from which the popup should open relative to the iconAnchor
+      }
+    });
+
+    var PathToHospital = new path({iconUrl: 'assets/Path.png'})
+
+    L.marker([1.2950, 103.7825], {icon: PathToHospital}).addTo(MERS).bindPopup("Designated Path");
+	
+	//sea state
+	
+	var STATE = new L.LayerGroup();
+	
+	var shipIcon2 = L.Icon.extend({
+      options: {
+          iconSize:     [11, 11], // size of the icon
+          iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+          popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+      }
+    });
+
+    var blueShip = new shipIcon2({iconUrl: 'assets/blueShip.png'});
+	var yellowShip = new shipIcon2({iconUrl: 'assets/yellowShip.png'});
+	var greenShip = new shipIcon2({iconUrl: 'assets/greenShip.png'});
+	var redShip = new shipIcon2({iconUrl: 'assets/redShip.png'});
+	var blackShip2 = new shipIcon2({iconUrl: 'assets/Ship_black.png'});
+	
+    L.marker([1.17889, 103.53447], {icon: blueShip}).addTo(STATE);
+    L.marker([1.18472, 103.62991], {icon: greenShip}).addTo(STATE);
+	L.marker([1.2036, 103.68793], {icon: yellowShip}).addTo(STATE);
+	L.marker([1.17202, 103.68759], {icon: redShip}).addTo(STATE);
+	L.marker([1.18815, 103.68759], {icon: blackShip2}).addTo(STATE);
+	
+	//ship in contact
+	var CONTACT = new L.LayerGroup();
+	var shipIcon3 = L.Icon.extend({
+      options: {
+          iconSize:     [32, 32], // size of the icon
+          iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+          popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+      }
+    });
+	
+	var whiteShip = new shipIcon3({iconUrl: 'assets/whiteShip.png'});
+	
+    L.marker([1.19605, 103.87299], {icon: whiteShip}).addTo(CONTACT);
+	L.marker([1.17545, 103.6615], {icon: whiteShip}).addTo(CONTACT);
+	L.marker([1.18815, 103.68759], {icon: blackShip2}).addTo(CONTACT);
+	L.marker([1.2036, 103.68793], {icon: yellowShip}).addTo(CONTACT);
+	
+	
 
 
     // List of layers in the control panel
 
     var timeshots = {
+	"MERS": MERS,
+	"SEA STATE":STATE,
+	"SHIP AFFECTED":CONTACT,
     "Timeshot 1": t1,
     "Timeshot 2": t2,
     "Timeshot 3": t3,
@@ -2289,7 +2416,7 @@ $(function() {
     "Timeshot 20": t20 // Add more snapshots here
     };
 
-    L.control.layers(baseLayers, timeshots, {
+    L.control.layers(baseLayers,timeshots,{
         collapsed : false
     }).addTo(map);
 
@@ -2361,7 +2488,41 @@ $(function() {
     $("#clearBtn").click(function(){
        playback.clearData();
     }); 
+	
+	// =====================================================
+    // =============== find where you are =============================
+    // =====================================================
+    var popup = L.popup();
 
+    function onMapClick(e) {
+      popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+    }
+
+    map.on('click', onMapClick); 
+	
+	// =====================================================
+    // =============== legend =============================
+    // =====================================================
+	
+	var MyControl = L.Control.extend({
+    options: {
+      position: 'bottomleft'
+    },
+
+    onAdd: function (map) {
+      // create the control container with a particular class name
+      // ** you can add the image to the div as a background image using css
+      var container = L.DomUtil.create('div', 'my-custom-control');
+
+      // ... initialize other DOM elements, add listeners, etc.
+      return container;
+	}
+	});
+
+	map.addControl(new MyControl());
 
     // =====================================================
     // =============== Minimap =============================
