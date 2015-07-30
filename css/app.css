@@ -1,14 +1,12 @@
 #map { 
 	/*height: 1080px;
 	width: 1920px; */
-/*	height: 600px;
-	width: 800px;*/
 }
 
 #container {
-	height: 1500px;
-	width: 1240px;
-  position: relative;
+	height: 1080px;
+	width: 1920px;
+  	position: relative;
 }
 
 #map {
