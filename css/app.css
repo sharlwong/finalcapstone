@@ -14,7 +14,7 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 150px;
+    bottom: 0px;
 }
 
 #clearBtn {
@@ -30,9 +30,9 @@
 }    
 
 #timeline { 
-    height: 120px; 
+    height: 100px; 
     position: absolute;
-    left: 0;
+    left: 120px;
     right: 0;
     bottom: 0;
 }

@@ -4,15 +4,15 @@ $(function() {
     var endTime = new Date(shipCoords[0].properties.time[shipCoords[0].properties.time.length - 1]);
 
     // Create a DataSet with data
-    var timelineData = new vis.DataSet([{ start: startTime, end: endTime, content: 'Relationship between entities' }]);
+    var timelineData = new vis.DataSet([{ start: startTime, end: endTime, content: 'Sea State' }]);
 
     // Set timeline options
     var timelineOptions = {
-      "width":  "100%",
-      "height": "120px",
+      "width":  "85%",
+      "height": "100px",
       "style": "box",
       "axisOnTop": true,
-      "showCustomTime":true,
+      "showCustomTime":true
     };
     
     // Setup timeline
