@@ -1,0 +1,33 @@
+.vis.timeline.root {
+    position: relative;
+    border: transparent;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.vis.timeline .item {
+    position: absolute;
+    color: white;
+    border-color: transparent;
+    border-width: 1px;
+    background-color: #EC008C;
+    display: inline-block;
+    padding: 5px;
+}
+
+.vis.timeline .item.selected {
+    border-color: transparent;
+    background-color: black;
+    z-index: 2;
+}
+
+.vis.timeline .timeaxis .text {
+    position: absolute;
+    color: black;
+    padding: 3px;
+    white-space: nowrap;
+    background-color: white;
+}
