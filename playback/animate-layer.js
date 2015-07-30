@@ -13,7 +13,7 @@ $(function() {
       "style": "box",
       "axisOnTop": true,
       "showCustomTime":true
-    };
+        };
     
     // Setup timeline
     var timeline = new vis.Timeline(document.getElementById('timeline'), timelineData, timelineOptions);
@@ -2385,40 +2385,35 @@ $(function() {
 	L.marker([1.18815, 103.68759], {icon: blackShip2}).addTo(CONTACT);
 	L.marker([1.2036, 103.68793], {icon: yellowShip}).addTo(CONTACT);
 	
-	
 
 
     // List of layers in the control panel
 
     var timeshots = {
-	"MERS": MERS,
-	"SEA STATE":STATE,
-	"SHIP AFFECTED":CONTACT,
-    "Timeshot 1": t1,
-    "Timeshot 2": t2,
-    "Timeshot 3": t3,
-    "Timeshot 4": t4,
-    "Timeshot 5": t5,
-    "Timeshot 6": t6,
-    "Timeshot 7": t7,
-    "Timeshot 8": t8,
-    "Timeshot 9": t9,
-    "Timeshot 10": t10,
-    "Timeshot 11": t11,
-    "Timeshot 12": t12,
-    "Timeshot 13": t13,
-    "Timeshot 14": t14,
-    "Timeshot 15": t15,
-    "Timeshot 16": t16,
-    "Timeshot 17": t17,
-    "Timeshot 18": t18,
-    "Timeshot 19": t19,
-    "Timeshot 20": t20 // Add more snapshots here
+        "Timeshot 1": t1,
+        "Timeshot 2": t2,
+        "Timeshot 3": t3,
+        "Timeshot 4": t4,
+        "Timeshot 5": t5,
+        "Timeshot 6": t6,
+        "Timeshot 7": t7,
+        "Timeshot 8": t8,
+        "Timeshot 9": t9,
+        "Timeshot 10": t10,
+        "Timeshot 11": t11,
+        "Timeshot 12": t12,
+        "Timeshot 13": t13,
+        "Timeshot 14": t14,
+        "Timeshot 15": t15,
+        "Timeshot 16": t16,
+        "Timeshot 17": t17,
+        "Timeshot 18": t18,
+        "Timeshot 19": t19,
+        "Timeshot 20": t20,
+        "Medical": MERS
     };
 
-    L.control.layers(baseLayers,timeshots,{
-        collapsed : false
-    }).addTo(map);
+    L.control.layers(baseLayers, timeshots).addTo(map);
 
 
     // =====================================================
